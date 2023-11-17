@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('name');
-            $table->string('description');
+            $table->json('name');
+            $table->json('description');
             $table->integer('price');
             $table->unsignedBigInteger('menu_category_id');
-            $table->foreign('menu_category_id')->references('id')->on('menu_categories');
+            $table->foreign('menu_category_id')->references('id')->on('menu_categories')->onDelete("cascade");
         });
     }
 

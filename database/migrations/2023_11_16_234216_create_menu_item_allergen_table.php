@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('menu_item_allergen', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
             $table->unsignedBigInteger('menu_item_id');
             $table->unsignedBigInteger('menu_allergen_id');
-            $table->timestamps();
 
             $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
-            $table->foreign('allergen_id')->references('id')->on('menu_allergens')->onDelete('cascade');
+            $table->foreign('menu_allergen_id')->references('id')->on('menu_allergens')->onDelete('cascade');
         });
     }
 
