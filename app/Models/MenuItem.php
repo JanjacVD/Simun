@@ -21,6 +21,6 @@ class MenuItem extends Model implements Orderable
 
     public function allergens()
     {
-        return $this->belongsToMany(MenuAllergen::class);
+        return $this->belongsToMany(MenuAllergen::class, 'menu_item_allergen');
     }
 }

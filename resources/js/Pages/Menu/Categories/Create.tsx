@@ -11,10 +11,11 @@ export default function Create({
             en: "",
             hr: "",
         },
-        parent_id: params.parentResult[0]?.id
+        parent_id: params.parentResult[0]?.id,
     });
     return (
         <MenuForm
+            title="create_category"
             data={data}
             routeName={route("menu-categories.store")}
             setData={setData}

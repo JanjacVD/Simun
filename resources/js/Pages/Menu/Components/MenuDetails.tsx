@@ -45,6 +45,7 @@ export default function MenuDetails({
                     {moment(items.deleted_at).toDate().toLocaleDateString()}
                 </div>
             )}
+            {children}
             <div className="flex p-3 flex-row items-center">
                 {items.deleted_at && (
                     <>
@@ -69,11 +70,10 @@ export default function MenuDetails({
                 )}
                 <ButtonLink
                     className="mr-5"
-                    href={route(routeBase+".edit", items.id)}
+                    href={route(routeBase + ".edit", items.id)}
                 >
                     {t("messages.edit")}
                 </ButtonLink>
-                {children}
             </div>
         </DetailsLayout>
     );

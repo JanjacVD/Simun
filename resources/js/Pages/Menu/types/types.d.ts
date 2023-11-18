@@ -14,6 +14,7 @@ export type Orderable = {
 export type NamedEntity = {
     name: Translatable;
     parent_id?: number;
+    allergens?:any[]
 };
 export type ParentEntity = {
     id: number;
@@ -26,6 +27,7 @@ export type MenuItem = Orderable & {
     menu_category_id: number;
     description: Translatable;
     price: number;
+    allergens:{id:number,name:Translatable}[]
 };
 export type FormProps<T extends NamedEntity> = PageProps & {
     routeName: string;
@@ -36,7 +38,11 @@ export type FormProps<T extends NamedEntity> = PageProps & {
     children?: React.ReactNode;
     parentResult?: ParentEntity[];
     formProps?: HTMLProps<HTMLFormElement>;
+    title:string
 };
+export type MenuAllergen = Orderable & {
+    image:string;
+}
 export type AllergenFormData = {
     name: Translatable;
     img: File | null;

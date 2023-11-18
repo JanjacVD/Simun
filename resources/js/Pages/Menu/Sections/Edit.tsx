@@ -13,6 +13,7 @@ export default function Edit({
 
     return (
         <MenuForm
+            title="edit_section"
             data={data}
             routeName={route("menu-sections.update", data)}
             setData={setData}

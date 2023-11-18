@@ -35,24 +35,36 @@ class MenuAllergenController extends MenuController
             'name' => $request->input('name'),
             'image' => $imgName
         ];
-        $request->file('img')->storeAs('allergen-images', $imgName . '.svg', 'public');
+        $request->file('img')->storeAs('allergen-images/', $imgName . '.svg', 'public');
         return parent::handleStore($data);
     }
 
     public function update(MenuAllergenUpdateRequest $request)
-    {   
+    {
         $uploadedImg = $request->file('img');
-        dd($request->all()); // Empty Array heere
-
         $allergen = MenuAllergen::withTrashed()->findOrFail($request->input('id'));
         $imgName = $allergen->image;
-        if (Storage::disk('public')->exists('allergen-images/' . $imgName . '.svg')) {
-            // dd('Test');
+        $newImgName = $request->input('name')['en'] . Str::uuid();
+        if ($uploadedImg) {
+            if (Storage::disk('public')->exists('allergen-images/' . $imgName . '.svg'))
+                Storage::disk('public')->delete('allergen-images/' . $imgName . '.svg');
+            $request->file('img')->storeAs('allergen-images/', $newImgName . '.svg', 'public');
         }
         $allergen->update([
             'name' => $request->input('name'),
-            'image' => $imgName
+            'image' => $newImgName
         ]);
         return redirect()->route('menu-allergens.show', $request->input('id'));
+    }
+
+    public function forceDelete($id)
+    {
+        $allergen = MenuAllergen::withTrashed()->findOrFail($id);
+        $imgName = $allergen->image;
+        if (Storage::disk('public')->exists('allergen-images/' . $imgName . '.svg')) {
+            Storage::disk('public')->delete('allergen-images/' . $imgName . '.svg');
+        }
+        $allergen->forceDelete();
+        return redirect()->route('menu-allergens.index');
     }
 }

@@ -12,6 +12,6 @@ export default function Edit({
         parent_id: items.menu_category_id,
     });
     return (
-        <ItemForm routeName={route("menu-items.store")} {...params} data={data} setData={setData} req={put} reset={reset}/>
+        <ItemForm title='edit_item'routeName={route("menu-items.store")} {...params} data={data} setData={setData} req={put} reset={reset}/>
     );
 }

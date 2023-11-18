@@ -21,9 +21,10 @@ class MenuAllergenUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-          return [
+        return [
             'name.en' => 'required|string',
             'name.hr' => 'required|string',
+            'img' => 'file|mimes:svg,xml|max:2048|nullable',
         ];
     }
 }

@@ -182,7 +182,8 @@ return [
 
     'attributes' => [
         "name.en" => "Name in English",
-        "name.hr" => "Name in Croatian"
+        "name.hr" => "Name in Croatian",
+        "img" => "Image"
     ],
 
 ];

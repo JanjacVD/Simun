@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\AbstractControllers\MenuController;
 use App\Http\Requests\MenuItemRequest;
+use App\Models\MenuAllergen;
 use App\Models\MenuItem;
 
 class MenuItemController extends MenuController
@@ -12,7 +13,7 @@ class MenuItemController extends MenuController
     {
         return MenuItem::class;
     }
-    
+
     protected function getRouteBase(): string
     {
         return 'menu-items';
@@ -22,14 +23,21 @@ class MenuItemController extends MenuController
     {
         return 'Items';
     }
-    
+
     public function store(MenuItemRequest $request)
     {
         $data = [
-            ...$request->input(),
+            ...$request->except('allergens'),
             'menu_category_id' => $request->input('parent_id'),
         ];
-        return parent::handleStore($data);
+        $allergenIids = array_map(function ($item) {
+            return $item['value'];
+        }, $request->input('allergens'));
+        $item = parent::handleStore($data);
+        $item->allergens()->sync($allergenIids);
+        return redirect()->back()->with([
+            'status' => 'success',
+        ]);
     }
 
     public function update(MenuItemRequest $request)
@@ -38,7 +46,11 @@ class MenuItemController extends MenuController
             ...$request->input(),
             'menu_category_id' => $request->input('parent_id'),
         ];
-        dd($data);
-        return parent::handleUpdate($data);
+        $item = parent::handleUpdate($data);
+        $allergenIids = array_map(function ($item) {
+            return $item['value'];
+        }, $request->input('allergens'));
+        $item->allergens()->sync($allergenIids);
+        return redirect()->route('menu-items.show', $data['id']);
     }
 }

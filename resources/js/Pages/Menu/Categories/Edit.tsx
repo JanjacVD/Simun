@@ -13,7 +13,8 @@ export default function Edit({
     });
     return (
         <MenuForm
-            data={data}
+        title="edit_category"
+        data={data}
             routeName={route("menu-categories.update", data)}
             setData={setData}
             reset={reset}

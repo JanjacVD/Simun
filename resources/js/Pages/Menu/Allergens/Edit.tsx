@@ -1,33 +1,32 @@
 import { useForm } from "@inertiajs/react";
 import { PageProps } from "@/types";
-import { AllergenFormData, MenuSection } from "../types/types";
 import MenuForm from "../Components/MenuForm";
 import { useLaravelReactI18n } from "laravel-react-i18n";
+import { AllergenFormData, MenuAllergen } from "../types/types";
+import InputError from "@/Components/InputError";
 
 export default function Edit({
     items,
     ...params
-}: PageProps<{ items: AllergenFormData }>) {
-    const { data, setData, patch, reset } = useForm<AllergenFormData>({
+}: PageProps<{ items: MenuAllergen }>) {
+    const { data, setData, post, reset } = useForm<AllergenFormData>({
         ...items,
         img: null,
     });
     const { t } = useLaravelReactI18n();
-    const handleFormImgChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault()
-        const selectedFile = e.target.files && e.target.files[0];
-        if (selectedFile) {
-            setData("img", selectedFile);
-        }
+    const submit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        post(route("menu-allergens.update", items.id));
     };
     return (
         <MenuForm
-            formProps={{ encType: "multipart/form-data" }}
-            data={data}
-            routeName={route("menu-allergens.update", data)}
+            title="edit_section"
+            formProps={{ encType: "multipart/form-data", onSubmit: submit }}
+            data={data as any}
+            routeName={route("menu-allergens.update", items.id)}
             setData={setData}
             reset={reset}
-            req={patch}
+            req={post}
             {...params}
         >
             <label
@@ -41,7 +40,15 @@ export default function Edit({
                 aria-describedby="file_input_help"
                 id="file_input"
                 type="file"
-                onChange={handleFormImgChange}
+                onChange={(e) =>
+                    setData((prev) => {
+                        const newData = {
+                            ...prev,
+                            img: e.target.files ? e.target.files[0] : null,
+                        };
+                        return newData;
+                    })
+                }
             />
             <p
                 className="mt-1 text-sm text-gray-500 dark:text-gray-300"
@@ -49,6 +56,7 @@ export default function Edit({
             >
                 SVG only.
             </p>
+            <InputError message={params.errors["img"]} className="mt-2" />
         </MenuForm>
     );
 }

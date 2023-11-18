@@ -168,6 +168,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "name.en" => "Naziv na Engleskom",
+        "name.hr" => "Naziv na Hrvatskom",
+        "img" => "Slika"
+    ],
 
 ];

@@ -11,6 +11,7 @@ export default function Create({ ...params }: PageProps) {
     });
     return (
         <MenuForm
+            title="create_section"
             data={data}
             routeName={route("menu-sections.store")}
             setData={setData}

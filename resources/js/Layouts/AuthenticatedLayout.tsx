@@ -23,7 +23,7 @@ export default function Authenticated({
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                    <ApplicationLogo className="block h-7 w-auto fill-current text-gray-800 dark:text-gray-200" />
                                 </Link>
                             </div>
 
@@ -64,6 +64,14 @@ export default function Authenticated({
                                 >
                                     {t("messages.allergens")}
                                 </NavLink>
+                                {user.is_superuser && (
+                                    <NavLink
+                                        href={route("user.list")}
+                                        active={route().current("user.list")}
+                                    >
+                                        {t("messages.users")}
+                                    </NavLink>
+                                )}
                             </div>
                         </div>
 
@@ -192,6 +200,14 @@ export default function Authenticated({
                         >
                             {t("messages.allergens")}
                         </ResponsiveNavLink>
+                        {user.is_superuser && (
+                            <ResponsiveNavLink
+                                href={route("user.list")}
+                                active={route().current("user.list")}
+                            >
+                                {t("messages.users")}
+                            </ResponsiveNavLink>
+                        )}
                     </div>
                     <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                         <div className="px-4">

@@ -28,8 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::post('menu-allergens/{menu_allergen}/delete', [MenuAllergenController::class, 'forceDelete'])->name('menu-allergens.forceDelete');
     Route::post('menu-allergens/order', [MenuAllergenController::class, 'handleOrderChange'])->name('menu-allergens.order');
 
-  
-    Route::patch('menu-allergens/{menu_allergen}/update', function (Request $request) {
-       dd($request->all());
-    })->name('menu-allergens.update');
+    Route::post('menu-allergens/{menu_allergen}/update', [MenuAllergenController::class, 'update'])->name('menu-allergens.update');
 });

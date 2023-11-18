@@ -1,15 +1,14 @@
 import { PageProps } from "@/types";
-import { MenuSection } from "../types/types";
-import { useLaravelReactI18n } from "laravel-react-i18n";
-import ButtonLink from "@/Components/ButtonLink";
+import { MenuAllergen } from "../types/types";
 import MenuDetails from "../Components/MenuDetails";
 
 export default function Show({
     items,
     ...props
-}: PageProps<{ items: MenuSection }>) {
-    const { t } = useLaravelReactI18n();
+}: PageProps<{ items: MenuAllergen }>) {
     return (
-        <MenuDetails routeBase="menu-allergens" {...props} items={items}/>
+        <MenuDetails routeBase="menu-allergens" {...props} items={items}>
+            <img width={100} height={100} src={"/storage/allergen-images/"+items.image+'.svg'}/>
+        </MenuDetails>
     );
 }

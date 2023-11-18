@@ -18,13 +18,13 @@
     "messages.details": "Details",
     "messages.new": "New",
     "messages.sent": "Sent",
-    "messages.save.order": "Save new order",
+    "messages.save.order": "Save New order",
     "messages.deleted_at": "Deleted at",
     "messages.restore": "Restore",
     "messages.linked_cat": "Linked categories",
     "messages.linked_item": "Linked items",
     "messages.forceDelete": "Delete permanently",
-    "messages.create_section": "Create section",
+    "messages.create_section": "Create New Section",
     "messages.edit_section": "Edit section",
     "messages.save": "Save",
     "messages.dashboard": "Dashboard",
@@ -32,6 +32,15 @@
     "messages.logout": "Log Out",
     "messages.select_section": "Select a Section",
     "messages.linked_section": "Linked Section",
+    "messages.upload_img": "Upload Image",
+    "messages.edit_category": "Edit Category",
+    "messages.edit_item": "Edit Item",
+    "messages.item_allergens": "Allergens",
+    "messages.edit_allergen": "Edit Allergen",
+    "messages.create_category": "Create New Category",
+    "messages.create_item": "Create New Item",
+    "messages.create_allergen": "Create New Allergen",
+    "messages.users": "Users",
     "pagination.previous": "&laquo; Previous",
     "pagination.next": "Next &raquo;",
     "passwords.reset": "Your password has been reset.",
@@ -184,6 +193,7 @@
     },
     "validation.attributes": {
         "name.en": "Name in English",
-        "name.hr": "Name in Croatian"
+        "name.hr": "Name in Croatian",
+        "img": "Image"
     }
 }

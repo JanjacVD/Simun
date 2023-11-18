@@ -18,12 +18,13 @@ export default function MenuForm<T extends NamedEntity>({
     setData,
     children,
     parentResult,
-    formProps
+    formProps,
+    title
 }: FormProps<T>) {
     const { t, currentLocale } = useLaravelReactI18n();
     const locale = currentLocale() as keyof Translatable;
     const submit: FormEventHandler = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         req(routeName, {
             onSuccess: () => {
                 toast.success(t("messages.sent"));
@@ -36,7 +37,7 @@ export default function MenuForm<T extends NamedEntity>({
             user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    {t("messages.edit_section")}
+                    {t("messages."+title)}
                 </h2>
             }
         >
@@ -46,7 +47,7 @@ export default function MenuForm<T extends NamedEntity>({
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
-                            <form {...formProps} onSubmit={submit}>
+                            <form onSubmit={submit} {...formProps}>
                                 <div className="mb-5">
                                     <InputLabel
                                         htmlFor="name_en"
@@ -109,9 +110,7 @@ export default function MenuForm<T extends NamedEntity>({
                                         </label>
                                         <select
                                             required
-                                            defaultValue={
-                                                data.parent_id
-                                            }
+                                            defaultValue={data.parent_id}
                                             id="parentClass"
                                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             onChange={(e) =>
@@ -121,7 +120,6 @@ export default function MenuForm<T extends NamedEntity>({
                                                 )
                                             }
                                         >
-                                      
                                             {parentResult.map((x) => (
                                                 <option key={x.id} value={x.id}>
                                                     {x.name[locale]}
@@ -129,9 +127,9 @@ export default function MenuForm<T extends NamedEntity>({
                                             ))}
                                         </select>
                                         <InputError
-                                        message={errors.parent_id}
-                                        className="mt-2"
-                                    />
+                                            message={errors.parent_id}
+                                            className="mt-2"
+                                        />
                                     </>
                                 )}
                                 <div className="flex items-center justify-end mt-4">
