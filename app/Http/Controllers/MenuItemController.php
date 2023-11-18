@@ -2,64 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AbstractControllers\MenuController;
+use App\Http\Requests\MenuItemRequest;
 use App\Models\MenuItem;
-use Illuminate\Http\Request;
 
-class MenuItemController extends Controller
+class MenuItemController extends MenuController
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    protected function getModelClass(): string
     {
-        //
+        return MenuItem::class;
+    }
+    
+    protected function getRouteBase(): string
+    {
+        return 'menu-items';
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    protected function getSubfolderName(): string
     {
-        //
+        return 'Items';
+    }
+    
+    public function store(MenuItemRequest $request)
+    {
+        $data = [
+            ...$request->input(),
+            'menu_category_id' => $request->input('parent_id'),
+        ];
+        return parent::handleStore($data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function update(MenuItemRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(MenuItem $menuItem)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(MenuItem $menuItem)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, MenuItem $menuItem)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(MenuItem $menuItem)
-    {
-        //
+        $data = [
+            ...$request->input(),
+            'menu_category_id' => $request->input('parent_id'),
+        ];
+        dd($data);
+        return parent::handleUpdate($data);
     }
 }

@@ -5,6 +5,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { User } from "@/types";
+import { useLaravelReactI18n } from "laravel-react-i18n";
 
 export default function Authenticated({
     user,
@@ -13,6 +14,7 @@ export default function Authenticated({
 }: PropsWithChildren<{ user: User; header?: ReactNode }>) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+    const { t } = useLaravelReactI18n();
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
             <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
@@ -30,7 +32,7 @@ export default function Authenticated({
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
                                 >
-                                    Dashboard
+                                    {t("messages.dashboard")}
                                 </NavLink>
                                 <NavLink
                                     href={route("menu-sections.index")}
@@ -38,7 +40,29 @@ export default function Authenticated({
                                         "menu-sections.index"
                                     )}
                                 >
-                                    Menu sections
+                                    {t("messages.sections")}
+                                </NavLink>
+                                <NavLink
+                                    href={route("menu-categories.index")}
+                                    active={route().current(
+                                        "menu-categories.index"
+                                    )}
+                                >
+                                    {t("messages.categories")}
+                                </NavLink>
+                                <NavLink
+                                    href={route("menu-items.index")}
+                                    active={route().current("menu-items.index")}
+                                >
+                                    {t("messages.items")}
+                                </NavLink>{" "}
+                                <NavLink
+                                    href={route("menu-allergens.index")}
+                                    active={route().current(
+                                        "menu-allergens.index"
+                                    )}
+                                >
+                                    {t("messages.allergens")}
                                 </NavLink>
                             </div>
                         </div>
@@ -74,14 +98,14 @@ export default function Authenticated({
                                         <Dropdown.Link
                                             href={route("profile.edit")}
                                         >
-                                            Profile
+                                            {t("messages.profile")}
                                         </Dropdown.Link>
                                         <Dropdown.Link
                                             href={route("logout")}
                                             method="post"
                                             as="button"
                                         >
-                                            Log Out
+                                            {t("messages.logout")}
                                         </Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
@@ -142,16 +166,33 @@ export default function Authenticated({
                             href={route("dashboard")}
                             active={route().current("dashboard")}
                         >
-                            Dashboard
+                            {t("messages.dashboard")}
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("menu-sections.index")}
                             active={route().current("menu-sections.index")}
                         >
-                            Menu sections
+                            {t("messages.sections")}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("menu-categories.index")}
+                            active={route().current("menu-categories.index")}
+                        >
+                            {t("messages.categories")}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("menu-items.index")}
+                            active={route().current("menu-items.index")}
+                        >
+                            {t("messages.items")}
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("menu-allergens.index")}
+                            active={route().current("menu-allergens.index")}
+                        >
+                            {t("messages.allergens")}
                         </ResponsiveNavLink>
                     </div>
-
                     <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
                         <div className="px-4">
                             <div className="font-medium text-base text-gray-800 dark:text-gray-200">
@@ -164,14 +205,14 @@ export default function Authenticated({
 
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink href={route("profile.edit")}>
-                                Profile
+                                {t("messages.profile")}
                             </ResponsiveNavLink>
                             <ResponsiveNavLink
                                 method="post"
                                 href={route("logout")}
                                 as="button"
                             >
-                                Log Out
+                                {t("messages.logout")}
                             </ResponsiveNavLink>
                         </div>
                     </div>

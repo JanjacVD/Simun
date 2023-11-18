@@ -10,8 +10,8 @@ export default function Index({
         <MenuTable
             {...props}
             data={items}
-            title={"sections"}
-            model="menu-sections"
+            title={"allergens"}
+            model="menu-allergens"
         />
     );
 }

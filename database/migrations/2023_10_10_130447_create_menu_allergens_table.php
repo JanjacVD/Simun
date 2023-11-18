@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('menu_allergens', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->json('name');
+            $table->integer('order');
+            $table->string('image')->nullable();
         });
     }
 

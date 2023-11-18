@@ -3,6 +3,9 @@
 return [
     'name_en' => 'Name in English',
     'name_hr' => 'Name in Croatian',
+    'desc_en' => 'Description in English',
+    'desc_hr' => 'Description in Croatian',
+    'price' => 'Price',
     'create' => 'Create',
     'edit' => 'Edit',
     'delete' => 'Delete',
@@ -22,5 +25,12 @@ return [
     "linked_item" => "Linked items",
     "forceDelete" => "Delete permanently",
     "create_section" => "Create section",
-    "edit_section" => "Edit section"
+    "edit_section" => "Edit section",
+    "save" => "Save",
+    "dashboard" => "Dashboard",
+    "profile" => "Profile",
+    "logout" => "Log Out",
+    "select_section" => "Select a Section",
+    "linked_section" => "Linked Section",
+    "upload_img" => "Upload Image"
 ];

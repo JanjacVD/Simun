@@ -6,7 +6,8 @@ export default function Error({
     message,
     status,
 }: PageProps<{ status: number; message: string }>) {
-    if (auth.user) {
+    return message;
+    if (auth) {
         return (
             <AuthenticatedLayout user={auth.user}>
                 <div className="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">

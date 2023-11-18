@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
+            $table->integer('order');
             $table->json('name');
             $table->json('description');
             $table->integer('price');

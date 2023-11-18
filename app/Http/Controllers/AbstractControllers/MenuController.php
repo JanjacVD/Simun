@@ -3,18 +3,25 @@
 namespace App\Http\Controllers\AbstractControllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Interfaces\Orderable;
+use App\Models\MenuCategory;
+use App\Models\MenuSection;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 abstract class MenuController extends Controller
 
 {
     protected $modelClass;
+    protected $subfolderName;
+    protected $routeBase;
     abstract protected function getModelClass(): string;
-
+    abstract protected function getSubfolderName(): string;
+    abstract protected function getRouteBase(): string;
     public function __construct()
     {
         $this->modelClass = $this->getModelClass();
+        $this->subfolderName = $this->getSubfolderName();
+        $this->routeBase = $this->getRouteBase();
     }
 
     protected function handleOrderChange(Request $request)
@@ -24,5 +31,87 @@ abstract class MenuController extends Controller
             $this->modelClass::where('id', $item['id'])->update(['order' => $item['order']]);
         }
         return redirect()->back();
+    }
+
+    public function index(Request $request)
+    {
+        $query = $this->modelClass::withTrashed();
+        if ($request->section_id) $query = $query->where('menu_section_id', $request->section_id);
+        if ($request->category_id) $query = $query->where('menu_category_id', $request->category_id);
+        return Inertia::render('Menu/' . $this->subfolderName . '/Index', [
+            "items" => $query->get()
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $props = [];
+        if ($this->subfolderName === "Categories") $props = ['parentResult' => MenuSection::all(['id', 'name'])];
+        elseif ($this->subfolderName === "Items") $props = ['parentResult' => MenuCategory::all(['id', 'name'])];
+        return Inertia::render('Menu/' . $this->subfolderName . '/Create', $props);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    protected function handleStore(array $data)
+    {
+        $this->getModelClass()::create(array_merge($data, ['order' => $this->modelClass::count() + 1]));
+        return redirect()->back()->with([
+            'status' => 'success',
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        return Inertia::render('Menu/' . $this->subfolderName . '/Show', ['items' => $this->modelClass::withTrashed()->findOrFail($id)]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id)
+
+    {
+        $props = ['items' => $this->modelClass::withTrashed()->findOrFail($id)];
+        if ($this->subfolderName === "Categories") $props = array_merge($props, ['parentResult' => MenuSection::all(['id', 'name'])]);
+        if ($this->subfolderName === "Items") $props = array_merge($props, ['parentResult' => MenuCategory::all(['id', 'name'])]);
+        return Inertia::render('Menu/' . $this->subfolderName . '/Edit', $props);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    protected function handleUpdate(array $data)
+    {
+        $this->modelClass::withTrashed()->findOrFail($data['id'])->update($data);
+        return redirect()->route($this->routeBase . '.show', $data['id']);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($model)
+    {
+        $this->modelClass::findOrFail($model)->delete($model);
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $this->modelClass::withTrashed()->findOrFail($id)->restore();
+        return redirect()->back();
+    }
+
+    public function forceDelete($id)
+    {
+        $this->modelClass::withTrashed()->findOrFail($id)->forceDelete();
+        return redirect()->route($this->routeBase . '.index');
     }
 }

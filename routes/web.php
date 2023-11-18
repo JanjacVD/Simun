@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MenuCategoryController;
+use App\Http\Controllers\MenuItemController;
 use App\Http\Controllers\MenuSectionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -34,12 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::resource('menu-sections', MenuSectionController::class)->withTrashed(['show']);
-    Route::post('/menu-sections/{menu_section}/restore', [MenuSectionController::class, 'restore'])->name('menu-sections.restore');
-    Route::post('/menu-sections/{menu_section}/delete', [MenuSectionController::class, 'forceDelete'])->name('menu-sections.forceDelete');
-    Route::post('menu-sections/order', [MenuSectionController::class, 'handleOrderChange'])->name('menu-sections.order');
-
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/menu.php';

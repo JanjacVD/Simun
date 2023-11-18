@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->json('name');
+            $table->integer('order');
             $table->unsignedBigInteger('menu_section_id');
             $table->foreign('menu_section_id')->references('id')->on('menu_sections')->onDelete("cascade");;
         });

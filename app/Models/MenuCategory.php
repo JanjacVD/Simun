@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
-class MenuSection extends Model implements Orderable
+class MenuCategory extends Model implements Orderable
 {
     use HasFactory, HasTranslations, SoftDeletes;
 
-    protected $fillable = ['name', 'order'];
+    protected $fillable = ['name', 'order', 'menu_section_id'];
     public $translatable = ['name'];
 
-    public function categories(){
-        return $this->hasMany(MenuCateogry::class);
+    public function section(){
+        return $this->belongsTo(MenuSection::class);
     }
-    
+
     public function items(){
-        return $this->hasManyThrough(MenuItem::class, MenuCategory::class);
+        return $this->belongsTo(MenuItems::class);
     }
 }
