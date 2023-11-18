@@ -18,7 +18,8 @@ createServer((page) =>
                 import.meta.glob("./Pages/**/*.tsx")
             ),
         setup: ({ App, props }) => {
-            global.route = (name, params, absolute) =>
+            // @ts-expect-error
+            global.route = (name: any, params: any, absolute: any) =>
                 route(name, params, absolute, {
                     // @ts-expect-error
                     ...page.props.ziggy,
