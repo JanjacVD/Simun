@@ -22,7 +22,7 @@ class NonWorkingDatesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'non_working_date' => 'required|date'
+            'non_working_date' => 'required|date|unique:non_working_dates'
         ];
     }
 }

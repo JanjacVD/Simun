@@ -141,9 +141,7 @@ export default function Create({
                                             setData(
                                                 "non_working_days",
                                                 selectedOptions
-                                                    .map(
-                                                        (option) => option.value
-                                                    )
+                                                    .map((option) => option)
                                                     .join(",")
                                             )
                                         }
@@ -153,7 +151,8 @@ export default function Create({
                                                 const num = Number(x);
                                                 if (!isNaN(num))
                                                     return daysOfWeek[num];
-                                            })}
+                                            })
+                                            .filter((x) => x != undefined)}
                                         isMulti
                                         options={daysOfWeek}
                                         name="days"

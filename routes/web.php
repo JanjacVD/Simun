@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\SuperuserController;
-use App\Http\Controllers\MenuCategoryController;
-use App\Http\Controllers\MenuItemController;
-use App\Http\Controllers\MenuSectionController;
+use App\Http\Controllers\NonWorkingDatesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkTimeController;
-use App\Models\NonWorkingDates;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -51,9 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('worktime', WorkTimeController::class)->only(['store', 'create']);
-    Route::resource('non-working-dates', NonWorkingDates::class)->only(['index', 'create', 'store', 'destroy']);
-
-    return Inertia::render('NonWorkingDates/Create', ['data' => NonWorkingDates::all(['id', 'non_working_date'])]);
+    Route::resource('non-working-dates', NonWorkingDatesController::class)->only(['index', 'create', 'store', 'destroy']);
 });
 
 Route::middleware(['auth', 'superuser'])->group(function () {

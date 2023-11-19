@@ -46,6 +46,7 @@
     "messages.is_working": "Is working",
     "messages.worktime": "Work time",
     "messages.non_working_dates": "Non working dates",
+    "messages.non_working_date": "Non working date",
     "messages.non_working_days": "Non working days",
     "pagination.previous": "&laquo; Previous",
     "pagination.next": "Next &raquo;",
@@ -204,6 +205,7 @@
         "time_from": "Time from",
         "time_to": "Time to",
         "is_working": "Is working",
-        "non_working_date": "Neradni dan"
+        "non_working_date": "Non working dates",
+        "non_working_days": "Non working days"
     }
 }

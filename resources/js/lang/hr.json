@@ -46,6 +46,7 @@
     "messages.is_working": "Trenutno radi",
     "messages.worktime": "Radno vrijeme",
     "messages.non_working_dates": "Neradni datumi",
+    "messages.non_working_date": "Neradni datum",
     "messages.non_working_days": "Neradni dani u tjednu",
     "pagination.previous": "&laquo; Prethodno",
     "pagination.next": "Sljedeće &raquo;",

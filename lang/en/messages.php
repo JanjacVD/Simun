@@ -46,5 +46,7 @@ return [
     "is_working" => "Is working",
     "worktime" => "Work time",
     "non_working_dates" => "Non working dates",
-    "non_working_days" => "Non working days"
+    "non_working_date" => "Non working date",
+    "non_working_days" => "Non working days",
+    "date" => "Date",
 ];

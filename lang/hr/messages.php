@@ -46,5 +46,7 @@ return [
     "is_working" => "Trenutno radi",
     "worktime" => "Radno vrijeme",
     "non_working_dates" => "Neradni datumi",
-    "non_working_days" => "Neradni dani u tjednu"
+    "non_working_date" => "Neradni datum",
+    "non_working_days" => "Neradni dani u tjednu",
+    "date" => "Datum",
 ];

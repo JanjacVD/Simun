@@ -14,7 +14,7 @@ class NonWorkingDatesController extends Controller
      */
     public function index()
     {
-        return Inertia::render('NonWorkingDates/Index', ['data' => NonWorkingDates::all(['id','non_working_date'])]);
+        return Inertia::render('NonWorkingDates/Index', ['data' => NonWorkingDates::all(['id', 'non_working_date'])]);
     }
 
     /**
@@ -34,9 +34,9 @@ class NonWorkingDatesController extends Controller
         return redirect()->back();
     }
 
-    public function destroy(NonWorkingDates $nonWorkingDates)
+    public function destroy($id)
     {
-        $nonWorkingDates->delete();
-        return redirect()->route('non-working-dates.index');
+        NonWorkingDates::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }

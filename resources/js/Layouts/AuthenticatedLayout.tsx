@@ -22,18 +22,12 @@ export default function Authenticated({
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
+                                <Link href={route('dashboard')}>
                                     <ApplicationLogo className="block h-7 w-auto fill-current text-gray-800 dark:text-gray-200" />
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink
-                                    href={route("dashboard")}
-                                    active={route().current("dashboard")}
-                                >
-                                    {t("messages.dashboard")}
-                                </NavLink>
                                 <NavLink
                                     href={route("menu-sections.index")}
                                     active={route().current(
@@ -69,6 +63,14 @@ export default function Authenticated({
                                     active={route().current("worktime.create")}
                                 >
                                     {t("messages.worktime")}
+                                </NavLink>
+                                <NavLink
+                                    href={route("non-working-dates.index")}
+                                    active={route().current(
+                                        "non-working-dates.index"
+                                    )}
+                                >
+                                    {t("messages.non_working_dates")}
                                 </NavLink>
                                 {user.is_superuser && (
                                     <NavLink
