@@ -40,5 +40,11 @@ return [
     "create_category" => "Create New Category",
     "create_item" => "Create New Item",
     "create_allergen" => "Create New Allergen",
-    "users" => "Users"
+    "users" => "Users",
+    "time_from" => "Time from",
+    "time_to" => "Time to",
+    "is_working" => "Is working",
+    "worktime" => "Work time",
+    "non_working_dates" => "Non working dates",
+    "non_working_days" => "Non working days"
 ];

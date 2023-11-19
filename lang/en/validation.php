@@ -183,7 +183,12 @@ return [
     'attributes' => [
         "name.en" => "Name in English",
         "name.hr" => "Name in Croatian",
-        "img" => "Image"
+        "img" => "Image",
+        "time_from" => "Time from",
+        "time_to" => "Time to",
+        "is_working" => "Is working",
+        "non_working_date" => "Non working dates",
+        "non_working_days" => "Non working days"
     ],
 
 ];

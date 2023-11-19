@@ -64,6 +64,12 @@ export default function Authenticated({
                                 >
                                     {t("messages.allergens")}
                                 </NavLink>
+                                <NavLink
+                                    href={route("worktime.create")}
+                                    active={route().current("worktime.create")}
+                                >
+                                    {t("messages.worktime")}
+                                </NavLink>
                                 {user.is_superuser && (
                                     <NavLink
                                         href={route("user.list")}
@@ -195,10 +201,10 @@ export default function Authenticated({
                             {t("messages.items")}
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            href={route("menu-allergens.index")}
-                            active={route().current("menu-allergens.index")}
+                            href={route("worktime.create")}
+                            active={route().current("worktime.create")}
                         >
-                            {t("messages.allergens")}
+                            {t("messages.worktime")}
                         </ResponsiveNavLink>
                         {user.is_superuser && (
                             <ResponsiveNavLink

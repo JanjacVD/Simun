@@ -41,6 +41,12 @@
     "messages.create_item": "Create New Item",
     "messages.create_allergen": "Create New Allergen",
     "messages.users": "Users",
+    "messages.time_from": "Time from",
+    "messages.time_to": "Time to",
+    "messages.is_working": "Is working",
+    "messages.worktime": "Work time",
+    "messages.non_working_dates": "Non working dates",
+    "messages.non_working_days": "Non working days",
     "pagination.previous": "&laquo; Previous",
     "pagination.next": "Next &raquo;",
     "passwords.reset": "Your password has been reset.",
@@ -194,6 +200,10 @@
     "validation.attributes": {
         "name.en": "Name in English",
         "name.hr": "Name in Croatian",
-        "img": "Image"
+        "img": "Image",
+        "time_from": "Time from",
+        "time_to": "Time to",
+        "is_working": "Is working",
+        "non_working_date": "Neradni dan"
     }
 }

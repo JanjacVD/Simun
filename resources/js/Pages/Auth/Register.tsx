@@ -40,7 +40,7 @@ export default function Register({ auth }: PageProps) {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg"></div>
+                    <div className="bg-white dark:bg-gray-800  shadow-sm sm:rounded-lg"></div>
                     <form onSubmit={submit}>
                         <div>
                             <InputLabel htmlFor="name" value="Name" />

@@ -14,6 +14,7 @@ export const customStyles = {
     ...provided,
     backgroundColor: state.isSelected ? '#4299E1' : '#2D3748',
     color: state.isSelected ? '#FFFFFF' : '#E2E8F0',
+    textTransform:"capitalize"
   }),
   menu: (provided:any) => ({
     ...provided,
@@ -27,6 +28,7 @@ export const customStyles = {
     ...provided,
     color: '#FFFFFF',
   }),
+
   multiValueRemove: (provided:any) => ({
     ...provided,
     color: '#FFFFFF',

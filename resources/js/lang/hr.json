@@ -10,10 +10,10 @@
     "messages.create": "Kreiraj",
     "messages.edit": "Uredi",
     "messages.delete": "Izbriši",
-    "messages.sections": "Sekcije izbornika",
-    "messages.categories": "Kategorije izbornika",
-    "messages.items": "Stavke izbornika",
-    "messages.allergens": "Alergeni izbornika",
+    "messages.sections": "Sekcije jelovnika",
+    "messages.categories": "Kategorije jelovnika",
+    "messages.items": "Stavke jelovnika",
+    "messages.allergens": "Alergeni jelovnika",
     "messages.name": "Ime",
     "messages.details": "Detalji",
     "messages.new": "Novo",
@@ -41,6 +41,12 @@
     "messages.create_item": "Kreiraj novu stavku",
     "messages.create_allergen": "Kreiraj novi alergen",
     "messages.users": "Korisnici",
+    "messages.time_from": "Vrijeme od",
+    "messages.time_to": "Vrijeme do",
+    "messages.is_working": "Trenutno radi",
+    "messages.worktime": "Radno vrijeme",
+    "messages.non_working_dates": "Neradni datumi",
+    "messages.non_working_days": "Neradni dani u tjednu",
     "pagination.previous": "&laquo; Prethodno",
     "pagination.next": "Sljedeće &raquo;",
     "passwords.reset": "Vaša lozinka je resetirana.",
@@ -194,6 +200,11 @@
     "validation.attributes": {
         "name.en": "Naziv na Engleskom",
         "name.hr": "Naziv na Hrvatskom",
-        "img": "Slika"
+        "img": "Slika",
+        "time_from": "Vrijeme od",
+        "time_to": "Vrijeme do",
+        "is_working": "Trenutno radi",
+        "non_working_date": "Neradni datum",
+        "non_working_days": "Neradni dani"
     }
 }

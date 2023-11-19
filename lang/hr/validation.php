@@ -171,7 +171,12 @@ return [
     'attributes' => [
         "name.en" => "Naziv na Engleskom",
         "name.hr" => "Naziv na Hrvatskom",
-        "img" => "Slika"
+        "img" => "Slika",
+        "time_from" => "Vrijeme od",
+        "time_to" => "Vrijeme do",
+        "is_working" => "Trenutno radi",
+        "non_working_date" => "Neradni datum",
+        "non_working_days" => "Neradni dani"
     ],
 
 ];

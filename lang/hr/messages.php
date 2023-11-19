@@ -40,5 +40,11 @@ return [
     'create_category' => 'Kreiraj novu kategoriju',
     'create_item' => 'Kreiraj novu stavku',
     'create_allergen' => 'Kreiraj novi alergen',
-    'users' => 'Korisnici'
+    'users' => 'Korisnici',
+    "time_from" => "Vrijeme od",
+    "time_to" => "Vrijeme do",
+    "is_working" => "Trenutno radi",
+    "worktime" => "Radno vrijeme",
+    "non_working_dates" => "Neradni datumi",
+    "non_working_days" => "Neradni dani u tjednu"
 ];
