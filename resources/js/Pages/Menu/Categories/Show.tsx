@@ -11,10 +11,18 @@ export default function Show({
     const { t } = useLaravelReactI18n();
     return (
         <MenuDetails routeBase="menu-categories" {...props} items={items}>
-            <ButtonLink className="mr-5" href={route("dashboard")}>
+            <ButtonLink
+                className="mr-5"
+                href={route("menu-items.index", {
+                    category_id: items.id,
+                })}
+            >
                 {t("messages.linked_item")}
             </ButtonLink>
-            <ButtonLink className="mr-5" href={route("menu-sections.show", items.menu_section_id)}>
+            <ButtonLink
+                className="mr-5"
+                href={route("menu-sections.show", items.menu_section_id)}
+            >
                 {t("messages.linked_section")}
             </ButtonLink>
         </MenuDetails>
