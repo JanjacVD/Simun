@@ -25,7 +25,7 @@ class WorkTimeRequest extends FormRequest
             'time_from' => 'required|string',
             'time_to' => 'required|string',
             'is_working' => 'required|boolean',
-            'non_working_days' => "string",
+            'non_working_days' => "string|nullable",
         ];
     }
 }
