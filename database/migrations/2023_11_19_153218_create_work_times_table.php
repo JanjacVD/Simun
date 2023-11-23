@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->time('time_from')->format('H:i');
             $table->time('time_to')->format('H:i');
-            $table->string('non_working_days');
+            $table->string('non_working_days')->nullable();
             $table->boolean('is_working');
         });
     }
