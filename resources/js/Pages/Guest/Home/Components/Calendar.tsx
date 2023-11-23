@@ -3,8 +3,8 @@ import moment from "moment";
 import { useEffect, useMemo, useState } from "react";
 
 export default function Calendar({
-    disabledDates,
-    disabledDays,
+    disabledDates = [],
+    disabledDays = [],
 }: {
     disabledDates: string[];
     disabledDays: number[];

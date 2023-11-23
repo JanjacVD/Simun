@@ -27,13 +27,13 @@ export default function WorktimeInfo({
                     <Calendar
                         disabledDates={non_working_dates}
                         disabledDays={worktime.non_working_days
-                            .split(",")
-                            .map((x) => Number(x))}
+                            ?.split(",")
+                            ?.map((x) => Number(x))}
                     />
                     <p className="worktime">
-                        {worktime.time_from.replace(/:00$/, "")}
+                        {worktime?.time_from?.replace(/:00$/, "")}
                         {" - "}
-                        {worktime.time_to.replace(/:00$/, "")}
+                        {worktime?.time_to?.replace(/:00$/, "")}
                     </p>
                 </div>
                 <Map />
