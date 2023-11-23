@@ -207,5 +207,18 @@
         "is_working": "Trenutno radi",
         "non_working_date": "Neradni datum",
         "non_working_days": "Neradni dani"
-    }
+    },
+    "restaurant": "Restoran & pizzeria",
+    "simun": "ŠIMUN",
+    "labels.menu": "Jelovnik",
+    "labels.gallery": "Galerija",
+    "labels.contact": "Kontakt",
+    "labels.homepage": "Početna",
+    "homepage.about.us": "O NAMA",
+    "homepage.about.title": "Domaći sastojci, Obiteljski recepti",
+    "homepage.about.text": "Restoran & Pizzeria Šimun je obiteljski ugostiteljski objekt gdje možete uživati u dobroj hrani dok se osjećate kao kod kuće. Stvoren u 1997 iz vizije da se pruži jednostavno, ali toplo i ugodno iskustvo. Nudeći svježe proizvode svakog dana, pobrinut ćemo se da upamtite iskustvo vaše posjete. Smješten u centru malog, ali predivnog grada Vodica, nije teško naletjeti na nas. Uživajte u večeri na prekrasnoj terasi, popijte piće, ili možda dva i istražite čuda lokalne kuhinje.",
+    "homepage.about.more": "Saznajte više",
+    "homepage.worktime": "Radno vrijeme",
+    "homepage.menu.about": "U Restoranu & Pizzeriji Šimun, hrana nije samo obrok; to je doživljaj okusa koji budi sva osjetila. Naša kuhinja je spoj strasti prema hrani i posvećenosti stvaranju jela koja oduševljavaju. Svaki sastojak pažljivo je odabran kako bismo vam pružili najsvježije i najkvalitetnije doživljaje. Naši kuhari marljivo rade kako bi stvorili tanjure koji nisu samo ukusni, već i vizualno privlačni. Od sočnih predjela koja bude vaše nepce do glavnih jela koja oživljavaju tradicionalne recepture našeg podneblja, obećavamo vam gastronomsko putovanje. Pustite nas da vas provedemo kroz kombinaciju svježih i lokalnih sastojaka, stvarajući jela koja prizivaju sjećanja i ostavljaju neizbrisiv dojam. Uživajte u našem prostoru, gdje se okusi susreću s ugodnom atmosferom, stvarajući trenutke koji će ostati urezani u vašem gastronomskom sjećanju. Restoran & Pizzeria Šimun - gdje svaki zalogaj priča svoju priču, a svaki obrok postaje doživljaj.",
+    "homepage.menu.title": "Isprobajte našu ponudu"
 }

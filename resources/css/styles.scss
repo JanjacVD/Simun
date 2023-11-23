@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import "variables";
+@import "navbar.scss";
+@import "homepage.scss";
+@import "footer.scss";
+::-webkit-scrollbar {
+    width: 5px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Change the color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Change the color of the thumb */
+    border-radius: 5px; /* Optional: Add rounded corners to the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Change the color of the thumb on hover */
+}
+
+body {
+    font-family: "Playfair Display", serif !important;
+    overflow-x: hidden;
+    background-color: $gray;
+}
+
+
+.animate-entry-fade-in {
+    animation: fade-in linear forwards 2s;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes slide-in-left {
+    0% {
+        margin-left: -110%;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@keyframes slide-in-right {
+    0% {
+        margin-left: 110%;
+        opacity: 0;
+    }
+    100% {
+        margin-right: 0;
+        opacity: 1;
+    }
+}
