@@ -11,9 +11,9 @@ export default function Footer() {
                     ŠIMUN
                 </Link>
                 <Link href="/">Početna</Link>
-                <Link href="/">Jelovnik</Link>
-                <Link href="/">Galerija</Link>
-                <Link href="/">Kontakt</Link>
+                <Link href={route('menu')}>Jelovnik</Link>
+                <Link href={route('gallery')}>Galerija</Link>
+                <Link href={route('contact')}>Kontakt</Link>
             </div>
             <div className="center">
                 <div className="links">
@@ -60,6 +60,9 @@ export default function Footer() {
                     </div>
                     <Map />
                 </div>
+            </div>
+            <div className="authored">
+                Made by V. Janjac & Designed by E. Pračić
             </div>
         </footer>
     );

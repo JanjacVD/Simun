@@ -27,7 +27,7 @@ export default function Hero() {
                         <h2>{t("homepage.about.us")}</h2>
                         <h3>{t("homepage.about.title")}</h3>
                         <p>{t("homepage.about.text")}</p>
-                        <button>{t("homepage.about.more")}</button>
+                        <button className="button-white">{t("homepage.about.more")}</button>
                     </div>
                 </div>
             </header>

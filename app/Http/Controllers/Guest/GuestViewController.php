@@ -22,4 +22,16 @@ class GuestViewController extends Controller
             "non_working_dates" => NonWorkingDates::all(['non_working_date']),
         ]);
     }
+    public function menu()
+    {
+        return Inertia::render('Guest/Menu/Menu', []);
+    }
+    public function contact()
+    {
+        return Inertia::render('Guest/Menu/Menu', []);
+    }
+    public function gallery()
+    {
+        return Inertia::render('Guest/Menu/Menu', []);
+    }
 }

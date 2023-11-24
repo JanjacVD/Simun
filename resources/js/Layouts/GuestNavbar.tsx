@@ -1,52 +1,50 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
-import { Link, router } from "@inertiajs/react";
+import Hamburger from "@/Components/Hamburger";
+import LangButton from "@/Components/LangButton";
+import { Link } from "@inertiajs/react";
 import { useLaravelReactI18n } from "laravel-react-i18n";
+import GuestNavbarAside from "./GuestNavbarAside";
+import { useState } from "react";
 export default function GuestNavbar() {
-    const { t, currentLocale, setLocale } = useLaravelReactI18n();
-    const changeLocale = () => {
-        const curr = currentLocale();
-        const changeTo = curr === "en" ? "hr" : "en";
-        setLocale(changeTo);
-        router.visit(route("locale", changeTo), { preserveState: true });
-    };
+    const { t } = useLaravelReactI18n();
+    const [isActive, setIsActive] = useState(false);
     return (
         <nav className="guest-navbar">
             <div className="left">
                 <Link href="/" className="logo">
                     <ApplicationLogo width={160} />
                 </Link>
-                <Link href="/" className="link">
+                <Link
+                    href={route('menu')}
+                    className={
+                        "link " +
+                        (route().current("menu") ? "link-active" : "")
+                    }
+                >
                     {t("labels.menu")}
                 </Link>
-                <Link href="/" className="link">
+                <Link
+                    href={route('gallery')}
+                    className={
+                        "link " +
+                        (route().current("gallery") ? "link-active" : "")
+                    }
+                >
                     {t("labels.gallery")}
                 </Link>
-                <Link href="/" className="link">
+                <Link
+                    href={route('contact')}
+                    className={
+                        "link " +
+                        (route().current("contact") ? "link-active" : "")
+                    }
+                >
                     {t("labels.contact")}
                 </Link>
+                <Hamburger isActive={isActive} setIsActive={setIsActive} />
             </div>
-            <button
-                className="lang-btn"
-                onClick={changeLocale}
-                aria-label="Switch language"
-                aria-description="Switch language"
-            >
-                <img
-                    className={currentLocale() === "hr" ? "active-lang" : "inactive-lang "}
-                    src={"/storage/page-images/hr.png"}
-                    width={30}
-                    alt="Croatia flag"
-                />
-                <span 
-                    className={"flag-cover " + (currentLocale() === "en" ? "slide-lang-left" : "slide-lang-right")}
-                    />
-                <img
-                    className={currentLocale() === "en" ? "active-lang" : "inactive-lang"}
-                    src={"/storage/page-images/uk.png"}
-                    width={30}
-                    alt="UK flag"
-                />
-            </button>
+            <LangButton />
+            <GuestNavbarAside isActive={isActive} />
         </nav>
     );
 }
