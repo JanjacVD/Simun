@@ -17,6 +17,7 @@ export default function Homepage(
     return (
         <GuestLayoutContainer>
             <Head>
+            <link rel="canonical" href="https://restoran-simun.hr" />
             <meta name="description" content={t("metaTags_description")} />
             <meta name="keywords" content={t("metaTags_keywords")} />
             <meta name="author" content={t("metaTags_author")} />

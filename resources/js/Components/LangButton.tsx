@@ -23,6 +23,7 @@ export default function LangButton() {
                 src={"/storage/page-images/hr.png"}
                 width={30}
                 alt="Croatia flag"
+                title="Croatia flag"
             />
             <span
                 className={
@@ -39,6 +40,7 @@ export default function LangButton() {
                 src={"/storage/page-images/uk.png"}
                 width={30}
                 alt="UK flag"
+                title="UK flag"
             />
         </button>
     );

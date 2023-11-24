@@ -14,14 +14,16 @@ export default function Hero() {
                     <img
                         loading="lazy"
                         src={"/storage/page-images/index.jpg"}
-                        alt="Owner and guests at the enterance"
+                        alt="Host and guests at the enterance"
+                        title="Host and guests at the enterance"
                     />
                 </div>
                 <div className="second-block info-block">
                     <img
                         loading="lazy"
                         src={"/storage/page-images/simun2.jpg"}
-                        alt="Photo of the owner"
+                        alt="Photo of the host"
+                        title="Photo of the host"
                     />
                     <div className="info">
                         <h2>{t("homepage.about.us")}</h2>
