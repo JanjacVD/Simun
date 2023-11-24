@@ -22,6 +22,7 @@ export default function Create({
         is_working: current?.is_working || true,
         non_working_days: current?.non_working_days || "",
     });
+    console.log(data)
     const { t, currentLocale } = useLaravelReactI18n();
     const submit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -152,14 +153,14 @@ export default function Create({
                                                     .join(",")
                                             )
                                         }
-                                        defaultValue={data.non_working_days
+                                        defaultValue={data.non_working_days ? data.non_working_days
                                             ?.split(",")
                                             .map((x) => {
                                                 const num = Number(x);
                                                 if (!isNaN(num))
                                                     return daysOfWeek[num];
                                             })
-                                            .filter((x) => x != undefined)}
+                                            .filter((x) => x ) : []}
                                         isMulti
                                         options={daysOfWeek}
                                         name="days"
