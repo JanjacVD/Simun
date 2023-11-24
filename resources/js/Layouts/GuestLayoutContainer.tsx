@@ -7,10 +7,12 @@ export default function GuestLayoutContainer({
     children: React.ReactNode;
 }) {
     return (
-        <>
-            <GuestNavbar />
-            <main>{children}</main>
-            <Footer />
-        </>
+        <div className="relative-stuff">
+            <div className="anti-scroll-fuckup-wrapper">
+                <GuestNavbar />
+                <main>{children}</main>
+                <Footer />
+            </div>
+        </div>
     );
 }
