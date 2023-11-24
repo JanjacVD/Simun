@@ -141,7 +141,14 @@ export default function Create({
                                             setData(
                                                 "non_working_days",
                                                 selectedOptions
-                                                    .map((option) => option)
+                                                    .map(
+                                                        (option) =>
+                                                            option?.value
+                                                    )
+                                                    .filter(
+                                                        (option) =>
+                                                            option !== undefined
+                                                    )
                                                     .join(",")
                                             )
                                         }

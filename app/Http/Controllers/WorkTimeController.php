@@ -15,7 +15,6 @@ class WorkTimeController extends Controller
     public function create()
     {
         $workTime = WorkTime::first();
-
         return Inertia::render('Worktime/Create', ['current' => $workTime]);
     }
 
