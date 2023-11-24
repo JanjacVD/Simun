@@ -74,7 +74,7 @@ export default function Calendar({
                 </div>
                 <div className="dates">
                     {DAYS_OF_WEEK.map((x, i) => (
-                        <div key={i} role="columnheader" className={"col-" + x}>
+                        <div key={i} className={"col-" + x}>
                             {new Intl.DateTimeFormat(currentLocale(), {
                                 weekday: "short",
                             }).format(new Date(2022, 7, x))}
@@ -86,7 +86,6 @@ export default function Calendar({
                                 isDisabled(x) ? "disabled-info" : undefined
                             }
                             aria-disabled={isDisabled(x)}
-                            role="gridcell"
                             className={
                                 "col-" +
                                 x.getDay() +

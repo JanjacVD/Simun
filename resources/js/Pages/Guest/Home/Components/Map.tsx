@@ -10,6 +10,7 @@ export default function Map() {
     useIntersectionObserverCallback(iframeRef, setSource);
     return (
         <iframe
+            title="Google map"
             key={"only-map"}
             ref={iframeRef}
             loading="lazy"

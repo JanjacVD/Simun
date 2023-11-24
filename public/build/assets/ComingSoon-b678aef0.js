@@ -1,1 +1,0 @@
-import{j as o}from"./app-f7551a09.js";import{G as n}from"./GuestLayoutContainer-0e088b6e.js";function i(){return o.jsx(n,{children:o.jsx("div",{className:"soon",children:o.jsx("h1",{children:"COMING SOON!"})})})}export{i as C};

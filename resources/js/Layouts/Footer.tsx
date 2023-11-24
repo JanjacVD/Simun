@@ -11,28 +11,32 @@ export default function Footer() {
                     ŠIMUN
                 </Link>
                 <Link href="/">Početna</Link>
-                <Link href={route('menu')}>Jelovnik</Link>
-                <Link href={route('gallery')}>Galerija</Link>
-                <Link href={route('contact')}>Kontakt</Link>
+                <Link href={route("menu")}>Jelovnik</Link>
+                <Link href={route("gallery")}>Galerija</Link>
+                <Link href={route("contact")}>Kontakt</Link>
             </div>
             <div className="center">
                 <div className="links">
                     <a
                         href="mailto:contact@restoran-simun.hr"
-                        aria-label="Email Us"
+                        aria-label="contact@restoran-simun.hr"
                     >
                         <MdEmail size={50} color={"#fff"} />
                         contact@restoran-simun.hr
                     </a>
                     <a
                         href="https://maps.app.goo.gl/roTa7teG9hdo2bUw7"
-                        aria-label="Visit Us"
+                        aria-label="Obala Ive Juričev Cota 26 
+                        Vodice, Croatia"
                     >
                         <MdLocationPin size={50} color={"#fff"} />
                         Obala Ive Juričev Cota 26 <br />
                         Vodice, Croatia
                     </a>
-                    <a href="tel:+385(022)443106" aria-label="Call Us">
+                    <a
+                        href="tel:+385(022)443106"
+                        aria-label="+385 (022) 443 106"
+                    >
                         <MdPhone size={50} color={"#fff"} />
                         +385 (022) 443 106
                     </a>

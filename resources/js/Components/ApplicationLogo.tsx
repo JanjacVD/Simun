@@ -3,6 +3,7 @@ import { SVGAttributes } from "react";
 export default function ApplicationLogo(props: SVGAttributes<SVGElement>) {
     return (
         <svg
+            aria-label="App logo"
             {...props}
             viewBox="0 0 158 30"
             fill="none"

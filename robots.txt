@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: / 
+Allow: /$
+Allow: /locale/hr
+Allow: /locale/en
+Allow: /menu$
+Allow: /gallery$
+Allow: /contact$
+
+Sitemap: https://restoran-simun.hr/sitemap.xml
+
