@@ -22,6 +22,7 @@ export default function LangButton() {
                 }
                 src={"/storage/page-images/hr.png"}
                 width={30}
+                height={30}
                 alt="Croatia flag"
                 title="Croatia flag"
             />
@@ -38,6 +39,7 @@ export default function LangButton() {
                     currentLocale() === "en" ? "active-lang" : "inactive-lang"
                 }
                 src={"/storage/page-images/uk.png"}
+                height={30}
                 width={30}
                 alt="UK flag"
                 title="UK flag"

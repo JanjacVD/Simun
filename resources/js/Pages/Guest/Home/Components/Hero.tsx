@@ -13,7 +13,7 @@ export default function Hero() {
                     </div>
                     <img
                         loading="lazy"
-                        src={"/storage/page-images/index.jpg"}
+                        src={"/storage/page-images/index.webp"}
                         alt="Host and guests at the enterance"
                         title="Host and guests at the enterance"
                     />
@@ -21,7 +21,7 @@ export default function Hero() {
                 <div className="second-block info-block">
                     <img
                         loading="lazy"
-                        src={"/storage/page-images/simun2.jpg"}
+                        src={"/storage/page-images/simun2.webp"}
                         alt="Photo of the host"
                         title="Photo of the host"
                     />
