@@ -5,9 +5,11 @@ import { Link } from "@inertiajs/react";
 import { useLaravelReactI18n } from "laravel-react-i18n";
 import GuestNavbarAside from "./GuestNavbarAside";
 import { memo, useState } from "react";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 const GuestNavbar = memo(function GuestNavbar() {
     const { t } = useLaravelReactI18n();
     const [isActive, setIsActive] = useState(false);
+    const width = useWindowWidth()
     return (
         <nav className="guest-navbar">
             <div className="left">
@@ -44,7 +46,7 @@ const GuestNavbar = memo(function GuestNavbar() {
                 <Hamburger isActive={isActive} setIsActive={setIsActive} />
             </div>
             <LangButton />
-            <GuestNavbarAside isActive={isActive} />
+            {width < 800 &&<GuestNavbarAside isActive={isActive} />}
         </nav>
     );
 }) 
