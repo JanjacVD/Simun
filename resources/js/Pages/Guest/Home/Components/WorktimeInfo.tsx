@@ -1,9 +1,10 @@
 import { useLaravelReactI18n } from "laravel-react-i18n";
-import Calendar from "./Calendar";
 import { Worktime } from "../types/homeTypes";
-import Map from "./Map";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { memo, useRef } from "react";
+import { lazy, memo, useRef } from "react";
+
+
+const Calendar = lazy(() => import("./Calendar"));
 
 const WorktimeInfo = memo(function WorktimeInfo({
     worktime,
@@ -36,7 +37,6 @@ const WorktimeInfo = memo(function WorktimeInfo({
                         {worktime?.time_to?.replace(/:00$/, "")}
                     </p>
                 </div>
-                <Map />
             </div>
         </section>
     );
