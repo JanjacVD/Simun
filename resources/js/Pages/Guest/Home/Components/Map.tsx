@@ -1,7 +1,7 @@
 import { useIntersectionObserverCallback } from "@/hooks/useIntersectionObserverCallback";
-import { useRef } from "react";
+import { memo, useRef } from "react";
 
-export default function Map() {
+const Map = memo(function Map() {
     const iframeRef = useRef<HTMLIFrameElement | null>(null);
     function setSource(source: HTMLIFrameElement) {
         source.src =
@@ -17,4 +17,5 @@ export default function Map() {
             referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
     );
-}
+});
+export default Map;

@@ -16,7 +16,7 @@ class MenuSection extends Model implements Orderable
     public $translatable = ['name'];
 
     public function categories(){
-        return $this->hasMany(MenuCateogry::class);
+        return $this->hasMany(MenuCategory::class);
     }
     
     public function items(){

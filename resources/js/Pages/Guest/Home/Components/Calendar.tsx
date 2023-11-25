@@ -1,8 +1,8 @@
 import { useLaravelReactI18n } from "laravel-react-i18n";
 import moment from "moment";
-import { useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 
-export default function Calendar({
+const Calendar = memo(function Calendar({
     disabledDates = [],
     disabledDays = [],
 }: {
@@ -73,14 +73,14 @@ export default function Calendar({
                     </button>
                 </div>
                 <div className="dates">
-                    {DAYS_OF_WEEK.map((x, i) => (
-                        <div key={i} className={"col-" + x}>
+                    {DAYS_OF_WEEK.map((x) => (
+                        <div key={x} className={"col-" + x}>
                             {new Intl.DateTimeFormat(currentLocale(), {
                                 weekday: "short",
                             }).format(new Date(2022, 7, x))}
                         </div>
                     ))}
-                    {days.map((x, i) => (
+                    {days.map((x) => (
                         <div
                             aria-describedby={
                                 isDisabled(x) ? "disabled-info" : undefined
@@ -91,7 +91,7 @@ export default function Calendar({
                                 x.getDay() +
                                 (isDisabled(x) ? " disabled-date" : "")
                             }
-                            key={i}
+                            key={x.getUTCDate()}
                         >
                             {x.getDate()}
                         </div>
@@ -103,4 +103,5 @@ export default function Calendar({
             </div>
         </div>
     );
-}
+});
+export default Calendar;

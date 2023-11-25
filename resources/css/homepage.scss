@@ -144,14 +144,16 @@
         }
     }
     .first-block {
-        animation: slide-in-left 0.8s linear forwards;
+        animation: fade-in 0.5s linear forwards;
+        // animation: slide-in-left 0.8s linear forwards;
         img {
             clip-path: polygon(0% 100%, 25% 0%, 100% 0%, 100% 100%);
             filter: brightness(0.7);
         }
     }
     .second-block {
-        animation: slide-in-right 0.8s linear forwards;
+        animation: fade-in 0.5s linear forwards;
+        // animation: slide-in-right 0.8s linear forwards;
         img {
             clip-path: polygon(0% 0%, 0% 100%, 75% 100%, 100% 0%);
             object-position: 50% 12%;

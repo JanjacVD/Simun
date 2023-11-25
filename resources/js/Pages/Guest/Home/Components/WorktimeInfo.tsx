@@ -3,9 +3,9 @@ import Calendar from "./Calendar";
 import { Worktime } from "../types/homeTypes";
 import Map from "./Map";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { useRef } from "react";
+import { memo, useRef } from "react";
 
-export default function WorktimeInfo({
+const WorktimeInfo = memo(function WorktimeInfo({
     worktime,
     non_working_dates,
 }: {
@@ -40,4 +40,5 @@ export default function WorktimeInfo({
             </div>
         </section>
     );
-}
+});
+export default WorktimeInfo;

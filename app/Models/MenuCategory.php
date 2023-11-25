@@ -20,6 +20,6 @@ class MenuCategory extends Model implements Orderable
     }
 
     public function items(){
-        return $this->belongsTo(MenuItems::class);
+        return $this->hasMany(MenuItem::class);
     }
 }

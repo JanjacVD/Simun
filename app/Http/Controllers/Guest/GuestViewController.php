@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MenuSectionResource;
+use App\Models\MenuSection;
 use App\Models\NonWorkingDates;
 use App\Models\WorkTime;
 use Illuminate\Http\Request;
@@ -24,7 +26,7 @@ class GuestViewController extends Controller
     }
     public function menu()
     {
-        return Inertia::render('Guest/Menu/Menu', []);
+        return Inertia::render('Guest/Menu/Menu', ['menu' => MenuSectionResource::collection(MenuSection::with('categories', 'categories.items', 'categories.items.allergens')->get())]);
     }
     public function contact()
     {
