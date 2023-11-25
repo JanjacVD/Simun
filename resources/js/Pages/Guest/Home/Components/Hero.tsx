@@ -24,7 +24,8 @@ const Hero = memo(function Hero() {
                         src={"/storage/page-images/simun2.webp"}
                         alt="Photo of the host"
                         title="Photo of the host"
-                    />
+                        srcSet={"/storage/page-images/simun2.webp 800w, /storage/page-images/simun3.webp 400w"}
+                        />
                     <div className="info">
                         <h2>{t("homepage.about.us")}</h2>
                         <h3>{t("homepage.about.title")}</h3>
