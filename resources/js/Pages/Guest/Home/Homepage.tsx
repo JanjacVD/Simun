@@ -51,7 +51,6 @@ const Homepage = memo(function Homepage(
                     name="twitter:image"
                     content="/storage/page-images/index.webp"
                 />
-                <link rel="icon" href="/storage/page-images/favicon.ico" />
                 <title>{t("labels.homepage")}</title>
             </Head>
             <Hero />
