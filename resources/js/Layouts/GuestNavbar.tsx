@@ -4,8 +4,8 @@ import LangButton from "@/Components/LangButton";
 import { Link } from "@inertiajs/react";
 import { useLaravelReactI18n } from "laravel-react-i18n";
 import GuestNavbarAside from "./GuestNavbarAside";
-import { useState } from "react";
-export default function GuestNavbar() {
+import { memo, useState } from "react";
+const GuestNavbar = memo(function GuestNavbar() {
     const { t } = useLaravelReactI18n();
     const [isActive, setIsActive] = useState(false);
     return (
@@ -47,4 +47,5 @@ export default function GuestNavbar() {
             <GuestNavbarAside isActive={isActive} />
         </nav>
     );
-}
+}) 
+export default GuestNavbar

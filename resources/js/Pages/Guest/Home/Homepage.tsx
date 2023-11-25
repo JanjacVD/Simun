@@ -31,7 +31,7 @@ const Homepage = memo(function Homepage(
                 <meta property="og:url" content="https://restoran-simun.hr" />
                 <meta
                     property="og:image"
-                    content="/storage/page-images/index.png"
+                    content="/storage/page-images/index.webp"
                 />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta
@@ -48,7 +48,7 @@ const Homepage = memo(function Homepage(
                 />
                 <meta
                     name="twitter:image"
-                    content="/storage/page-images/index.png"
+                    content="/storage/page-images/index.webp"
                 />
                 <link rel="icon" href="/storage/page-images/favicon.ico" />
                 <title>{t("labels.homepage")}</title>

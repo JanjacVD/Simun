@@ -1,7 +1,9 @@
+import { memo } from "react";
 import Footer from "./Footer";
 import GuestNavbar from "./GuestNavbar";
 
-export default function GuestLayoutContainer({
+
+const GuestLayoutContainer = memo(function GuestLayoutContainer({
     children,
 }: {
     children: React.ReactNode;
@@ -15,4 +17,5 @@ export default function GuestLayoutContainer({
             </div>
         </div>
     );
-}
+})
+export default GuestLayoutContainer

@@ -2,8 +2,9 @@ import { Link } from "@inertiajs/react";
 import { MdPhone, MdLocationPin, MdEmail } from "react-icons/md";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import Map from "@/Pages/Guest/Home/Components/Map";
+import { memo } from "react";
 
-export default function Footer() {
+const Footer = memo(function Footer() {
     return (
         <footer>
             <div className="left">
@@ -70,4 +71,5 @@ export default function Footer() {
             </div>
         </footer>
     );
-}
+})
+export default Footer
