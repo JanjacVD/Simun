@@ -15,13 +15,14 @@ const Hero = memo(function Hero() {
                     </div>
                     <LazyLoadImage
                         src={"/storage/page-images/index.webp"}
+                        srcSet={"/storage/page-images/index.webp 800w, /storage/page-images/index3.webp 400w"}
                         alt="Host and guests at the enterance"
                         title="Host and guests at the enterance"
                     />
                 </div>
                 <div className="second-block info-block">
                     <LazyLoadImage
-                        src={"/storage/page-images/simun2.webp"}
+                        // src={"/storage/page-images/simun2.webp"}
                         alt="Photo of the host"
                         title="Photo of the host"
                         srcSet={"/storage/page-images/simun2.webp 800w, /storage/page-images/simun3.webp 400w"}
