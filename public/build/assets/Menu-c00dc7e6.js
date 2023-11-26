@@ -1,1 +1,0 @@
-import{j as o}from"./app-f3d06ef3.js";import{C as r}from"./ComingSoon-07f90c1c.js";import"./GuestLayoutContainer-bab40c95.js";import"./Map-78b15c02.js";import"./ApplicationLogo-4fe014f7.js";import"./hook-50ba6f60.js";function u({menu:t}){return o.jsx(r,{})}export{u as default};
