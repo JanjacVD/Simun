@@ -11,7 +11,7 @@ export default function Edit({
     items: MenuItem;
     allergens: { id: number; name: Translatable }[];
 }>) {
-    const { data, setData, put, reset } = useForm({
+    const { data, setData, post, reset } = useForm({
         ...items,
         parent_id: items.menu_category_id,
     });
@@ -23,7 +23,7 @@ export default function Edit({
             {...params}
             data={data}
             setData={setData}
-            req={put}
+            req={post}
             reset={reset}
         />
     );

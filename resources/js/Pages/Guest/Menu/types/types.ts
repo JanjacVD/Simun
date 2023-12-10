@@ -1,15 +1,14 @@
-import { Translatable } from "@/Pages/Menu/types/types";
 
 type OrderableTranslatableItem = {
     order: number;
-    name: Translatable;
+    name: string;
 };
 
 export type MenuAllergen = OrderableTranslatableItem & {
     image: string;
 };
 export type MenuItem = OrderableTranslatableItem & {
-    description: Translatable;
+    description: string;
     price: number;
     allergens: MenuAllergen[];
 };
@@ -20,4 +19,4 @@ export type MenuCategory = OrderableTranslatableItem & {
 export type MenuSection = OrderableTranslatableItem & {
     categories: MenuCategory[];
 };
-export type MenuType = MenuSection[];
+export type MenuType ={data: MenuSection[]};
