@@ -1,7 +1,8 @@
 import { MenuSection } from "../types/types";
 import MenuItemUnit from "./MenuItemUnit";
 
-export default function DisplayedSection({section}:{section:MenuSection}){
+export default function DisplayedSection({section}:{section:MenuSection | undefined}){
+    if(!section) return null
     return <div className="displayed-section" aria-label={`Displayed Section: ${section.name}`}>
         {section.categories.sort((a, b) => a.order - b.order).map(x => (
             <div key={x.order} className="menu-category">

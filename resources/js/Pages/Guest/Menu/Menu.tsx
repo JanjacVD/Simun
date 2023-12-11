@@ -6,31 +6,37 @@ import { useLaravelReactI18n } from "laravel-react-i18n";
 import { useState } from "react";
 import SectionSelector from "./components/SectionSelector";
 import DisplayedSection from "./components/DisplayedSection";
+import GuestLayoutContainer from "@/Layouts/GuestLayoutContainer";
+import MenuHead from "../Heads/MenuHead";
 
 export default function Menu({ menu }: PageProps<{ menu: MenuType }>) {
     const { t } = useLaravelReactI18n();
-    const [selectedSection, setSelectedSection] = useState<MenuSection>(menu.data[0]);
-    console.log(menu.data);
+    const [selectedSection, setSelectedSection] = useState<number>(
+        menu.data[0]?.order || 0
+    );
     return (
-        <section id="menu">
-            <div className="first-block info-block">
-                <div className="info">
-                    <h1>{t("labels.menu")}</h1>
+        <GuestLayoutContainer>
+            <MenuHead />
+            <section id="menu">
+                <div className="first-block info-block">
+                    <div className="info">
+                        <h1>{t("labels.menu")}</h1>
+                    </div>
+                    <LazyLoadImage
+                        src={"/storage/page-images/menu.webp"}
+                        alt="Shrimp spaghetti"
+                        title="Shrimp spaghetti"
+                    />
                 </div>
-                <LazyLoadImage
-                    src={"/storage/page-images/menu.webp"}
-                    alt="Shrip spaghetti dish photo"
-                    title="Shrip spaghetti dish photo"
-                />
-            </div>
-            <div className="menu-container">
-                <SectionSelector
-                    categories={menu.data}
-                    selectedSection={selectedSection}
-                    setSelectedSection={setSelectedSection}
-                />
-                <DisplayedSection section={selectedSection}/>
-            </div>
-        </section>
+                <div className="menu-container">
+                    <SectionSelector
+                        categories={menu.data}
+                        selectedSection={selectedSection}
+                        setSelectedSection={setSelectedSection}
+                    />
+                    <DisplayedSection section={menu.data.find(x => x.order === selectedSection)} />
+                </div>
+            </section>
+        </GuestLayoutContainer>
     );
 }
