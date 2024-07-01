@@ -25,24 +25,6 @@ const GuestNavbar = memo(function GuestNavbar() {
                 >
                     {t("labels.menu")}
                 </Link>
-                <Link
-                    href={route('gallery')}
-                    className={
-                        "link " +
-                        (route().current("gallery") ? "link-active" : "")
-                    }
-                >
-                    {t("labels.gallery")}
-                </Link>
-                <Link
-                    href={route('contact')}
-                    className={
-                        "link " +
-                        (route().current("contact") ? "link-active" : "")
-                    }
-                >
-                    {t("labels.contact")}
-                </Link>
                 <Hamburger isActive={isActive} setIsActive={setIsActive} />
             </div>
             <LangButton />
