@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 abstract class MenuController extends Controller
-
 {
     protected $modelClass;
     protected $subfolderName;
@@ -37,8 +36,10 @@ abstract class MenuController extends Controller
     public function index(Request $request)
     {
         $query = $this->modelClass::withTrashed();
-        if ($request->section_id) $query = $query->where('menu_section_id', $request->section_id);
-        if ($request->category_id) $query = $query->where('menu_category_id', $request->category_id);
+        if ($request->section_id)
+            $query = $query->where('menu_section_id', $request->section_id);
+        if ($request->category_id)
+            $query = $query->where('menu_category_id', $request->category_id);
         return Inertia::render('Menu/' . $this->subfolderName . '/Index', [
             "items" => $query->get()
         ]);
@@ -50,8 +51,10 @@ abstract class MenuController extends Controller
     public function create()
     {
         $props = [];
-        if ($this->subfolderName === "Categories") $props = ['parentResult' => MenuSection::all(['id', 'name'])];
-        elseif ($this->subfolderName === "Items") $props = ['parentResult' => MenuCategory::all(['id', 'name']), 'allergens' => MenuAllergen::all(['id', 'name'])];
+        if ($this->subfolderName === "Categories")
+            $props = ['parentResult' => MenuSection::all(['id', 'name'])];
+        elseif ($this->subfolderName === "Items")
+            $props = ['parentResult' => MenuCategory::all(['id', 'name']), 'allergens' => MenuAllergen::all(['id', 'name'])];
         return Inertia::render('Menu/' . $this->subfolderName . '/Create', $props);
     }
 
@@ -61,7 +64,8 @@ abstract class MenuController extends Controller
     protected function handleStore(array $data)
     {
         $model = $this->getModelClass()::create(array_merge($data, ['order' => $this->modelClass::count() + 1]));
-        if($this->subfolderName === "Items") return $model;
+        if ($this->subfolderName === "Items")
+            return $model;
         return redirect()->back()->with([
             'status' => 'success',
         ]);
@@ -85,8 +89,10 @@ abstract class MenuController extends Controller
         $query = $this->modelClass::withTrashed();
         $this->subfolderName === "Items" && ($query = $query->with('allergens'));
         $props = ['items' => $query->findOrFail($id)];
-        if ($this->subfolderName === "Categories") $props = array_merge($props, ['parentResult' => MenuSection::all(['id', 'name'])]);
-        if ($this->subfolderName === "Items") $props = array_merge($props, ['parentResult' => MenuCategory::all(['id', 'name']), 'allergens' => MenuAllergen::all(['id', 'name'])]);
+        if ($this->subfolderName === "Categories")
+            $props = array_merge($props, ['parentResult' => MenuSection::all(['id', 'name'])]);
+        if ($this->subfolderName === "Items")
+            $props = array_merge($props, ['parentResult' => MenuCategory::all(['id', 'name']), 'allergens' => MenuAllergen::all(['id', 'name'])]);
         return Inertia::render('Menu/' . $this->subfolderName . '/Edit', $props);
     }
 
@@ -95,8 +101,11 @@ abstract class MenuController extends Controller
      */
     protected function handleUpdate(array $data)
     {
-        $model = $this->modelClass::withTrashed()->findOrFail($data['id'])->update($data);
-        if($this->subfolderName === "Items") return $model;
+        $model = $this->modelClass::withTrashed()->findOrFail($data['id']);
+        dd($model);
+        // update($data);
+        if ($this->subfolderName === "Items")
+            return $model;
         return redirect()->route($this->routeBase . '.show', $data['id']);
     }
 

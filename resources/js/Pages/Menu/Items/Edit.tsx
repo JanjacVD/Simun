@@ -19,7 +19,7 @@ export default function Edit({
         <ItemForm
             allergens={allergens}
             title="edit_item"
-            routeName={route("menu-items.store")}
+            routeName={route("menu-items.update")}
             {...params}
             data={data}
             setData={setData}

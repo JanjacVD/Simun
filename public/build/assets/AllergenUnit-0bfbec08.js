@@ -1,0 +1,1 @@
+import{j as a}from"./app-bbceef98.js";function r({x:e}){return a.jsxs("div",{className:"allergen",children:[a.jsx("img",{width:50,height:50,src:"/storage/allergen-images/"+e.image+".svg",alt:e.name+" Image"}),e.name]})}export{r as default};
