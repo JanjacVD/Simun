@@ -134,7 +134,7 @@
     ]
   },
   "resources/css/styles.scss": {
-    "file": "assets/styles-0a066c17.css",
+    "file": "assets/styles-941a7677.css",
     "isEntry": true,
     "src": "resources/css/styles.scss"
   },
@@ -967,5 +967,13 @@
     "file": "assets/hr-27fc9cbd.js",
     "isDynamicEntry": true,
     "src": "resources/js/lang/hr.json"
+  },
+  "storage/app/public/page-images/index.webp": {
+    "file": "assets/index-281dd21a.webp",
+    "src": "storage/app/public/page-images/index.webp"
+  },
+  "storage/app/public/page-images/menu.jpg": {
+    "file": "assets/menu-fb22bed0.jpg",
+    "src": "storage/app/public/page-images/menu.jpg"
   }
 }
