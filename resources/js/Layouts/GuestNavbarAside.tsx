@@ -18,12 +18,7 @@ const GuestNavbarAside = memo(function GuestNavbarAside({
             <Link href={route("menu")} className="link">
                 {t("labels.menu")}
             </Link>
-            <Link href={route("gallery")} className="link">
-                {t("labels.gallery")}
-            </Link>
-            <Link href={route("contact")} className="link">
-                {t("labels.contact")}
-            </Link>
+
             <LangButton />
         </div>
     );
