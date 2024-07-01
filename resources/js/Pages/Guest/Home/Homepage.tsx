@@ -5,7 +5,7 @@ import { Worktime } from "./types/homeTypes";
 import { lazy, memo } from "react";
 import HomeHead from "../Heads/HomeHead";
 
-const WorktimeInfo = lazy(() => import("./Components/WorktimeInfo"));
+// const WorktimeInfo = lazy(() => import("./Components/WorktimeInfo"));
 const MenuInfo = lazy(() => import("./Components/MenuInfo"));
 const Hero = lazy(() => import("./Components/Hero"));
 
@@ -17,7 +17,7 @@ const Homepage = memo(function Homepage(
         <GuestLayoutContainer>
             <HomeHead />
             <Hero />
-            <WorktimeInfo {...props} />
+            {/* <WorktimeInfo {...props} /> */}
             <MenuInfo />
         </GuestLayoutContainer>
     );
