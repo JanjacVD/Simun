@@ -21,7 +21,7 @@ const MenuInfo = memo(function MenuInfo() {
                     className="button-red"
                     title="Go to menu"
                     aria-label="Go to Menu"
-                    href="/"
+                    href={route("menu")}
                 >
                     {t("labels.menu")}
                 </Link>
