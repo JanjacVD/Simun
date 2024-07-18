@@ -11,25 +11,34 @@ export default function SectionSelector({
     selectedSection,
     setSelectedSection,
 }: CategorySelectorProps) {
-    const width = useWindowWidth()
-    const [dropdownDisplayed, setDropdownDisplayed] = useState(false)
-    const handleClick = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        if(width > 800) setSelectedSection(Number(e.currentTarget.value))
+    const width = useWindowWidth();
+    const [dropdownDisplayed, setDropdownDisplayed] = useState(false);
+    const handleClick = (
+        e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+        if (width > 800) setSelectedSection(Number(e.currentTarget.value));
         else {
-            if(!e.currentTarget.classList.contains('selected')) setSelectedSection(Number(e.currentTarget.value))
-            setDropdownDisplayed(prev => !prev)
+            if (!e.currentTarget.classList.contains("selected"))
+                setSelectedSection(Number(e.currentTarget.value));
+            setDropdownDisplayed((prev) => !prev);
         }
-        console.log(e.currentTarget.value)
-    }
+    };
     return (
-        <div className={(dropdownDisplayed ? "dropdown-displayed " : "") + "category-selector"}>
+        <div
+            className={
+                (dropdownDisplayed ? "dropdown-displayed " : "") +
+                "category-selector"
+            }
+        >
             {categories
                 .sort((a, b) => a.order - b.order)
                 .map((x) => (
                     <button
                         onClick={handleClick}
                         value={x.order}
-                        className={selectedSection === x.order ? "selected" : ""}
+                        className={
+                            selectedSection === x.order ? "selected" : ""
+                        }
                         key={x.order}
                         aria-current={
                             selectedSection === x.order ? "page" : undefined

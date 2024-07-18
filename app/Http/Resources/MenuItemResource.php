@@ -14,7 +14,7 @@ class MenuItemResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $locale = app()->getLocale();
+        $locale = session()->get('locale');
         return [
             'name' => $this->getTranslation('name', $locale),
             'description' => $this->getTranslation('description', $locale),

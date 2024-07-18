@@ -24,8 +24,8 @@ class MenuItemRequest extends FormRequest
         return [
             'name.en' => 'required|string',
             'name.hr' => 'required|string',
-            'description.hr' => 'required|string',
-            'description.en' => 'required|string',
+            'description.hr' => 'nullable|string',
+            'description.en' => 'nullable|string',
             'parent_id' => 'required|integer',
             'price' => 'required|decimal:0,2',
         ];

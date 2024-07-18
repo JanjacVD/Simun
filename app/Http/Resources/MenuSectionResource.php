@@ -14,7 +14,7 @@ class MenuSectionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $locale = app()->getLocale();
+        $locale = session()->get('locale');
         return [
             'name' => $this->getTranslation('name', $locale),
             'categories' => MenuCategoryResource::collection($this->whenLoaded('categories')),

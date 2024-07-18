@@ -20,6 +20,7 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
         const locale = document.documentElement.getAttribute("lang") as string;
+        console.log(locale);
         root.render(
             <LaravelReactI18nProvider
                 locale={locale}

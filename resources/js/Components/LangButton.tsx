@@ -7,7 +7,7 @@ export default function LangButton() {
         const curr = currentLocale();
         const changeTo = curr === "en" ? "hr" : "en";
         setLocale(changeTo);
-        router.visit(route("locale", changeTo), { preserveState: true });
+        router.visit(route("locale", changeTo), { preserveState: false });
     };
     return (
         <button

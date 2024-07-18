@@ -11,7 +11,7 @@ export default function Edit({
     items: MenuItem;
     allergens: { id: number; name: Translatable }[];
 }>) {
-    const { data, setData, post, reset } = useForm({
+    const { data, setData, put, reset } = useForm({
         ...items,
         parent_id: items.menu_category_id,
     });
@@ -19,11 +19,11 @@ export default function Edit({
         <ItemForm
             allergens={allergens}
             title="edit_item"
-            routeName={route("menu-items.update")}
+            routeName={route("menu-items.update", { menu_item: items.id })}
             {...params}
             data={data}
             setData={setData}
-            req={post}
+            req={put}
             reset={reset}
         />
     );

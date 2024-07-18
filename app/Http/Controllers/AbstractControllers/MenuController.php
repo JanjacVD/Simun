@@ -102,8 +102,7 @@ abstract class MenuController extends Controller
     protected function handleUpdate(array $data)
     {
         $model = $this->modelClass::withTrashed()->findOrFail($data['id']);
-        dd($model);
-        // update($data);
+        $model->update($data);
         if ($this->subfolderName === "Items")
             return $model;
         return redirect()->route($this->routeBase . '.show', $data['id']);
