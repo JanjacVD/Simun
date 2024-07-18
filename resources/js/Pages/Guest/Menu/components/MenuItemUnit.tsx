@@ -30,13 +30,22 @@ export default function MenuItemUnit({ item }: { item: MenuItem }) {
                         : "menu-item-accordion"
                 }
             >
-                <p aria-label="Menu item description" className="menu-item-description">{item.description}</p>
-                <h4>{t("messages.item_allergens")}:</h4>
-                <div className="allergen-list" aria-label="Allergens">
-                    {item.allergens.map((x) => (
-                        <AllergenUnit x={x} key={x.order} />
-                    ))}
-                </div>
+                <p
+                    aria-label="Menu item description"
+                    className="menu-item-description"
+                >
+                    {item.description}
+                </p>
+                {item.allergens.length > 0 && (
+                    <>
+                        <h4>{t("messages.item_allergens")}:</h4>
+                        <div className="allergen-list" aria-label="Allergens">
+                            {item.allergens.map((x) => (
+                                <AllergenUnit x={x} key={x.order} />
+                            ))}
+                        </div>
+                    </>
+                )}
             </section>
         </div>
     );
