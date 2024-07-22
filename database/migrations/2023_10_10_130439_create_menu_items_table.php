@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->softDeletes();
             $table->integer('order');
             $table->json('name');
-            $table->json('description');
-            $table->integer('price');
+            $table->json('description')->nullable();
+            $table->double('price');
             $table->unsignedBigInteger('menu_category_id');
             $table->foreign('menu_category_id')->references('id')->on('menu_categories')->onDelete("cascade");
         });
