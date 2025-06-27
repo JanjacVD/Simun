@@ -19,13 +19,6 @@ const Footer = memo(function Footer() {
             <div className="center">
                 <div className="links">
                     <a
-                        href="mailto:contact@restoran-simun.hr"
-                        aria-label="contact@restoran-simun.hr"
-                    >
-                        <MdEmail size={50} color={"#fff"} />
-                        contact@restoran-simun.hr
-                    </a>
-                    <a
                         href="https://maps.app.goo.gl/roTa7teG9hdo2bUw7"
                         aria-label="Obala Ive Juričev Cota 26 
                         Vodice, Croatia"
@@ -71,5 +64,5 @@ const Footer = memo(function Footer() {
             </div>
         </footer>
     );
-})
-export default Footer
+});
+export default Footer;
